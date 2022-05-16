@@ -1,8 +1,12 @@
+// import WeekActivityHeatMap from './Components/WeekActivityHeatMap/WeekActivityHeatMap.jsx'
+// import mockData from './Assets/mockData';
+import Dashboard from './Screens/Dashboard/Dashboard.jsx';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <Dashboard />
     </div>
   );
 }
