@@ -1,7 +1,7 @@
 // import WeekActivityHeatMap from './Components/WeekActivityHeatMap/WeekActivityHeatMap.jsx'
 // import mockData from './Assets/mockData';
-import Dashboard from './Screens/Dashboard/Dashboard.jsx';
-import './App.css';
+import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
+import "./App.css";
 
 function App() {
   return (

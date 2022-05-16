@@ -4,6 +4,7 @@ import { useTooltip } from "@nivo/tooltip";
 import "./TopContentBarGraph.css";
 
 const TopContentBarGraph = ({ data, isMiniature }) => {
+  const maxValue = Math.max(...data.map((item) => item.hoursValue));
   let barProps = {
     data,
     keys: ["hoursValue"],
@@ -17,11 +18,12 @@ const TopContentBarGraph = ({ data, isMiniature }) => {
     indexScale: { type: "band", round: true },
     colors: { scheme: "nivo" },
     minValue: 0,
-    maxValue: 230,
+    maxValue,
     axisTop: null,
     axisRight: null,
     legends: [],
   };
+
   return (
     <ResponsiveBar
       className="top-content-bar-graph"

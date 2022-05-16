@@ -42,8 +42,6 @@ const WeekActivityHeatMap = ({ data, isMiniature }) => {
     colors: {
       type: "sequential",
       scheme: "reds",
-      minValue: 0,
-      maxValue: 8,
     },
     emptyColor: "#555555",
     borderRadius: "0.3%",

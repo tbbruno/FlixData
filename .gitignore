@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# Arquivos csv com os dados
+/src/Assets/*.csv
+
 # dependencies
 /node_modules
 /.pnp

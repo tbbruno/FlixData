@@ -2,20 +2,48 @@
   # Lista geral de conteúdo limpa:
   [
     {
-      type: 'tvShow',
-      showName: "The World's Most Amazing Vacation Rentals",
-      seasonNumber: '1',
-      episodeName: 'Best of Bali',
-      episodeNumber: '1',
-      numberOfSession: 1,
-      durationWatched: 
+      "type": "tvShow",
+      "showName": "Friends with Benefits",
+      "sessionsCount": 17,
+      "sessions": {
+        "startDate": "",
+        "duration": "",
+        
+      },
+      "duration": {
+        "components": {
+          "hours": 4,
+          "minutes": 38,
+          "seconds": 21
+        },
+        "formattedStr": "04:38:21"
+      }
     },
     {
-      type: 'movie',
-      title: 'Season 1 Trailer: The Big Shot Game Show'
+      "type": "movie",
+      "title": "All Over the Guy",
+      "sessionsCount": 2,
+      "sessions": [
+        {
+          "startDate": "",
+          "duration": "",
+        },
+      ],
+      "duration": {
+        "components": {
+          "hours": 1,
+          "minutes": 32,
+          "seconds": 59
+        },
+        "formattedStr": "01:32:59"
+      }
     },
   ]
 */
+
+// 2022-03-26 19:47:03 GMT
+// 2022-03-26 19:00:21 GMT
+// 2022-03-25 00:45:39 GMT
 
 const mockHeatMapData = [
   {
