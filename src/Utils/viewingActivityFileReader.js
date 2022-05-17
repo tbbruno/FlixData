@@ -1,5 +1,5 @@
 import papa from "papaparse";
-import rawFile from "../Assets/ViewingActivity.csv";
+import rawFile from "../Assets/ViewingActivity2.csv";
 
 async function readViewingRawDataToJSON() {
   const file = await fetch(rawFile);

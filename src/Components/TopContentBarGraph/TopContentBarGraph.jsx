@@ -29,7 +29,8 @@ const TopContentBarGraph = ({ data, isMiniature }) => {
       className="top-content-bar-graph"
       {...barProps}
       colorBy="indexValue"
-      barComponent={BarComponent}
+      // barComponent={BarComponent}
+      label={(d) => `${d.data.contentName}`}
       tooltip={CustomToolTip}
     />
   );

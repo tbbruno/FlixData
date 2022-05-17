@@ -54,11 +54,15 @@ const individualSessionInfoForItem = (item, possibleTVShowInfo) => {
   return sessionInfo;
 };
 
-const parseGroupedContentInfo = (items, includeSessionsInfo = false) => {
+const parseGroupedContentInfo = (
+  rawItems,
+  includeSessionsInfo,
+  shouldFilterItemOutFunction
+) => {
   let processedItemsDict = {};
 
-  for (const item of items) {
-    const title = item.Title;
+  for (const rawItem of rawItems) {
+    const title = rawItem.Title;
     const possibleTVShowInfo = extractTVShowInfoIfPossible(title);
 
     let formattedItem = {};
@@ -81,12 +85,12 @@ const parseGroupedContentInfo = (items, includeSessionsInfo = false) => {
 
     formattedItem = {
       ...formattedItem,
-      ...aggregatedDurationInfoForItem(item, itemKey, processedItemsDict),
+      ...aggregatedDurationInfoForItem(rawItem, itemKey, processedItemsDict),
     };
 
     if (includeSessionsInfo) {
       const newSessionInfo = individualSessionInfoForItem(
-        item,
+        rawItem,
         possibleTVShowInfo
       );
       const sessionsInfo = aggregatedSessionsInfo(
@@ -101,40 +105,49 @@ const parseGroupedContentInfo = (items, includeSessionsInfo = false) => {
       };
     }
 
+    if (shouldFilterItemOutFunction(rawItem, formattedItem)) {
+      continue;
+    }
     processedItemsDict[itemKey] = formattedItem;
   }
 
   return Object.values(processedItemsDict);
 };
 
-const parseIndividualSessionsContentInfo = (items) => {
+const parseIndividualSessionsContentInfo = (
+  rawItems,
+  shouldFilterItemOutFunction
+) => {
   const parsedItems = [];
-  for (const item of items) {
-    const title = item.Title;
+  for (const rawItem of rawItems) {
+    const title = rawItem.Title;
     const possibleTVShowInfo = extractTVShowInfoIfPossible(title);
 
-    let formattedItem = {};
+    let parsedItem = {};
 
     if (possibleTVShowInfo) {
       const { showName } = possibleTVShowInfo;
 
-      formattedItem = {
+      parsedItem = {
         type: "tvShow",
         title: showName,
       };
     } else {
-      formattedItem = {
+      parsedItem = {
         type: "movie",
         title,
       };
     }
 
-    formattedItem = {
-      ...formattedItem,
-      ...individualSessionInfoForItem(item, possibleTVShowInfo),
+    parsedItem = {
+      ...parsedItem,
+      ...individualSessionInfoForItem(rawItem, possibleTVShowInfo),
     };
 
-    parsedItems.push(formattedItem);
+    if (shouldFilterItemOutFunction(rawItem, parsedItem)) {
+      continue;
+    }
+    parsedItems.push(parsedItem);
   }
 
   return parsedItems;

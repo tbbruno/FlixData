@@ -1,7 +1,7 @@
 .dashboard-card {
   color: #FEFEFE;
   flex-basis: 45vw;
-  margin: 16px auto;
+  /* margin: 16px auto; */
   height: 40vw;
   box-sizing: border-box;
   display: flex;
@@ -30,6 +30,8 @@
 
 .dashboard-card header h2 {
   font-size: auto;
+  font-weight: 800;
+  letter-spacing: -0.05em;
 }
 
 .dashboard-card .content {

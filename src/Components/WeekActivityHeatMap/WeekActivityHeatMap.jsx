@@ -18,27 +18,24 @@ const WeekActivityHeatMap = ({ data, isMiniature }) => {
     data,
     enableLabels: !isMiniature,
     margin: isMiniature
-      ? { top: 0, right: 0, bottom: 0, left: 0 }
+      ? // ? { top: 0, right: 0, bottom: 0, left: 0 }
+        { top: 30, right: 10, bottom: 0, left: 40 }
       : { top: 60, right: 90, bottom: 60, left: 90 },
     // forceSquare: true,
     xOuterPadding: 0.05,
     xInnerPadding: 0.05,
     yOuterPadding: 0.05,
     yInnerPadding: 0.05,
-    axisTop: isMiniature
-      ? null
-      : {
-          tickSize: 0,
-          tickPadding: 5,
-          tickRotation: -90,
-        },
-    axisLeft: isMiniature
-      ? null
-      : {
-          tickSize: 0,
-          tickPadding: 5,
-          tickRotation: 0,
-        },
+    axisTop: {
+      tickSize: 0,
+      tickPadding: 10,
+      tickRotation: 0,
+    },
+    axisLeft: {
+      tickSize: 0,
+      tickPadding: 5,
+      tickRotation: 0,
+    },
     colors: {
       type: "sequential",
       scheme: "reds",
@@ -47,27 +44,6 @@ const WeekActivityHeatMap = ({ data, isMiniature }) => {
     borderRadius: "0.3%",
     enableLabels: false,
   };
-
-  if (!isMiniature) {
-    heatMapProps.legends = [
-      {
-        anchor: "bottom",
-        translateX: 0,
-        translateY: 40,
-        length: 400,
-        thickness: 8,
-        direction: "row",
-        tickPosition: "after",
-        tickSize: 3,
-        tickSpacing: 4,
-        tickOverlap: false,
-        tickFormat: ">-.2s",
-        title: "Média de Horas assistidas →",
-        titleAlign: "start",
-        titleOffset: 8,
-      },
-    ];
-  }
 
   return (
     <ResponsiveHeatMap
@@ -102,17 +78,11 @@ const CustomToolTip = (props) => {
         background: "#222222",
       }}
     >
-      <span>
-        Weekday: <strong>{x}</strong>
-      </span>
+      <strong>
+        {x}, {serieId}
+      </strong>
       <br />
-      <span>
-        Time: <strong>{serieId}</strong>
-      </span>
-      <br />
-      <span>
-        Average hours watched: <strong>{formattedValue}</strong>
-      </span>
+      <span>{formattedValue} hours</span>
     </div>
   );
 };

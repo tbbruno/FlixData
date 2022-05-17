@@ -143,7 +143,6 @@ const getWeekHeatMapFormattedData = (items) => {
     data: hourBlock.days.map(mapDayBlock),
   }));
 
-  console.log(returnValue);
   return returnValue;
 };
 
