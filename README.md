@@ -1,3 +1,8 @@
+# FlixData
+
+In order to use this application, clone this repo and drop your `ViewingActivity.csv` file into /src/Assets.
+Your can request your Netflix data by accessing https://www.netflix.com/account/getmyinfo.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
